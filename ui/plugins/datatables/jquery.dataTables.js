@@ -1229,6 +1229,7 @@
 			 * be used if defined, rather than throwing an error
 			 */
 			var fetchData = function (data, type, src) {
+				console.log(data);
 				var arrayNotation, funcNotation, out, innerSrc;
 
 				if ( src !== "" )
@@ -1248,14 +1249,13 @@
 
 							// Condition allows simply [] to be passed in
 							if ( a[i] !== "" ) {
-								data = data[ a[i] ];
+							//	data = data[ a[i] ];
 							}
 							out = [];
 
 							// Get the remainder of the nested object to get
 							a.splice( 0, i+1 );
 							innerSrc = a.join('.');
-
 							// Traverse each entry in the array getting the properties requested
 							for ( var j=0, jLen=data.length ; j<jLen ; j++ ) {
 								out.push( fetchData( data[j], type, innerSrc ) );
